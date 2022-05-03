@@ -5,25 +5,27 @@
     </div>
 </template>
 
-<script>
-    import { defineComponent, ref } from 'vue';
-    export default defineComponent({
+<script lang="ts">
+    // import { defineComponent, ref } from 'vue';,
+    // export default defineComponent({});
+    import { ref } from 'vue';
+    export default {
         setup () {
-    const name = ref('kkb')
-    const pos = ref([20,120,200,100])
-    const count = ref(1)
-    const setName = (n)=>{
-      name.value = n
-      pos.value[1]+=20
-      count.value+=2
-    }
+            const name = ref('kkb')
+            const pos = ref([20,120,200,100])
+            const count = ref(1)
+            const setName = (n: any)=>{
+            name.value = n
+            pos.value[1]+=20
+            count.value+=2
+            }
 
-    return {
-      name,
-      setName,
-      pos,
-      count
-    }
+            return {
+            name,
+            setName,
+            pos,
+            count
+            }
         }
-    })
+    }
 </script>
