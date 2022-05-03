@@ -3,7 +3,7 @@ const config = require('./config');
 
 module.exports = {
     mode: 'development',
-    entry: path.resolve('./', 'public/main.ts'),
+    entry: path.resolve('./', 'src/index.ts'),
     output: {
         path: path.resolve('./', 'public'),
         filename: 'bundle.js'
@@ -19,5 +19,6 @@ module.exports = {
         proxy: {
         },
     },
-    module: config.module
+    module: config.module,
+    plugins: config.plugins,
 };

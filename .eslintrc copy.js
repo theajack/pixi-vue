@@ -1,20 +1,29 @@
+/*
+ * @Author: tackchen
+ * @Date: 2022-05-03 18:02:46
+ * @LastEditors: tackchen
+ * @LastEditTime: 2022-05-03 18:02:47
+ * @FilePath: /pixi-vue/.eslintrc copy.js
+ * @Description: Coding something
+ */
+
 module.exports = {
-  "extends": [
-    "plugin:vue/vue3-recommended",
-    'plugin:@typescript-eslint/recommended'
-  ],
-  
   "env": {
     "browser": true,
     "es6": true,
     "node": true,
     "commonjs": true
   },
-  parser: 'vue-eslint-parser',
-  // parserOptions: {
+  // "extends": [
+  //   // "standard",
+  //   "plugin:vue/essential"
+  // ],
+  "extends": [
+    'plugin:vue/vue3-recommended',
+    // 'plugin:@typescript-eslint/recommended'
+  ],
   "parserOptions": {
-    // "parser": "babel-eslint",
-    parser: '@typescript-eslint/parser',
+    "parser": "babel-eslint",
     "ecmaVersion": 2018,
     "ecmaFeatures": {
       "arrowFunctions": true,
@@ -32,14 +41,7 @@ module.exports = {
     "window": true,
   },
   "rules": {
-    'no-var': "error",
-    // 优先使用 interface 而不是 type
-    '@typescript-eslint/consistent-type-definitions': [
-        "error",
-        "interface"
-    ],
-    "@typescript-eslint/no-unused-vars": "error", // 使用 ts 未使用变量的规则 比如枚举类型在es中会报错
-    "@typescript-eslint/no-var-requires": "0",
+    "prefer-const": "error",
     "no-extend-native": 0,
     "no-new": 0,
     "no-useless-escape": 0,
@@ -47,6 +49,10 @@ module.exports = {
     "no-trailing-spaces": ["error", { "skipBlankLines": true }],
     "indent": ["error", 4, {
       "SwitchCase": 1
+    }],
+    "vue/script-indent": ["warn", 4, {
+      "baseIndent": 1,
+      "switchCase": 1
     }],
     "space-infix-ops": ["error", {"int32Hint": false}],
     "space-before-function-paren": ["error", {
@@ -63,6 +69,7 @@ module.exports = {
     "object-curly-spacing": ["error", "never"],
     "arrow-spacing": "error",
     "no-multiple-empty-lines": "error",
+    "no-unused-vars": "error",
     "spaced-comment": "error",
     "quotes": ["error", "single", { "allowTemplateLiterals": true }],
     "no-unreachable": "error",
@@ -72,14 +79,6 @@ module.exports = {
     "comma-spacing": "error",
     "key-spacing": "error",
     "no-undef": "error",
-    "prefer-const": ["error", {
-      "destructuring": "any",
-      "ignoreReadBeforeAssign": false
-    }],
-    "vue/script-indent": ["warn", 4, {
-      "baseIndent": 1,
-      "switchCase": 1
-    }],
     "vue/html-indent": ["error", 4],
     "vue/html-quotes": ["error", "single", { "avoidEscape": true }],
   },

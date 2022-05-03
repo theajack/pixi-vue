@@ -18,6 +18,7 @@ module.exports = () => {
         externals: {},
         module: config.module,
         plugins: [
+            ...config.plugins,
             new CopyWebpackPlugin({
                 patterns: [
                     {from: 'src/index.d.ts'},
