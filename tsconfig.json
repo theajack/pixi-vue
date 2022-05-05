@@ -19,9 +19,10 @@
         "lib": ["esnext", "dom"],
         // "types": ["jest", "puppeteer", "node"],
         "rootDir": ".",
-        // "paths": {
-        //   "@vue/*": ["packages/*/src"]
-        // }
+        "paths": {
+            "src/*": ["src/*"],
+            "types/*": ["src/types/*"],
+        }
     },
     "include": [
         "./src/*"

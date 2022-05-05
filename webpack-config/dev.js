@@ -1,5 +1,6 @@
 const path = require('path');
 const config = require('./config');
+const webpack = require('webpack');
 
 module.exports = {
     mode: 'development',
@@ -20,5 +21,10 @@ module.exports = {
         },
     },
     module: config.module,
-    plugins: config.plugins,
+    plugins: [
+        ...config.plugins,
+        new webpack.ProvidePlugin({
+            PIXI: 'pixi.js'
+        })
+    ],
 };

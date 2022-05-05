@@ -2,15 +2,20 @@
  * @Author: tackchen
  * @Date: 2022-03-27 12:00:17
  * @LastEditors: tackchen
- * @LastEditTime: 2022-05-04 00:28:05
+ * @LastEditTime: 2022-05-04 16:24:04
  * @FilePath: /pixi-vue/webpack-config/config.js
  * @Description: Coding something
  */
 const {VueLoaderPlugin} = require('vue-loader');
+const path = require('path');
 
 module.exports = {
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js' ]
+        extensions: [ '.tsx', '.ts', '.js' ],
+        alias: {
+            'src': path.resolve('./', 'src/'),
+            'types': path.resolve('./', 'src/types/'),
+        }
     },
     module: {
         rules: [{

@@ -71,7 +71,6 @@ const {createApp: originCa} = createRenderer({
             }
         }
         if (parent.nodeName) {
-            debugger
             draw(child);
             if (child.onClick) {
                 ctx.canvas.addEventListener('click', () => {

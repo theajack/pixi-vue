@@ -2,5 +2,7 @@
 /public/index.html
 /npm
 /cdn
-/dist
 /node_modules
+weapp-adapter.js
+dist
+wx-minigame/libs
