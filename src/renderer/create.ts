@@ -48,9 +48,10 @@ const {createApp: originCa} = createRenderer<PVNode, PVElement>({
     patchProp (el, key, prev, next) {
         if (next === prev) return;
         if (key === 'style') {
-            el.setStyle(next as IPVStyle);
+            el.style.set(next as IPVStyle);
         } else if (key === 'onClick') {
-            // el.on('click', next);
+            // debugger;
+            el.on('click', next);
             el.on('touchend', next);
         } else {
             el.props[key] = next;

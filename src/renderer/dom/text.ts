@@ -2,7 +2,7 @@
  * @Author: tackchen
  * @Date: 2022-05-04 09:21:19
  * @LastEditors: tackchen
- * @LastEditTime: 2022-05-05 09:27:11
+ * @LastEditTime: 2022-05-14 20:12:06
  * @FilePath: /pixi-vue/src/renderer/dom/text.ts
  * @Description: Coding something
  */
@@ -10,8 +10,9 @@
 import {PVNode} from './base/node';
 import {Text} from 'pixi.js';
 import {PVElement} from './base/element';
-import {IPosition, IPVStyleKey} from 'types/dom.d';
-import {IJson} from 'src/types/utils';
+import {IPVStyleKey} from 'types/dom.d';
+import {ENodeName} from 'types/enum';
+import {PVTextStyle} from '../style/text-style';
 
 
 export const TextStyleMap: {
@@ -25,14 +26,17 @@ export const TextStyleMap: {
 
 export class TextNode extends PVNode {
     text: Text;
-
+    style: PVTextStyle;
+    nodeName = ENodeName.Text;
     setText (value: string) {
         super.setText(value);
+        
         this.text.text = value;
     }
 
     constructor (text = '') {
         super();
+        this.style = new PVTextStyle(this);
         this.text = new Text(text);
         this.textContent = text;
     }
@@ -40,20 +44,5 @@ export class TextNode extends PVNode {
     onAdd (parent: PVElement): void {
         super.onAdd(parent);
         parent.container.addChild(this.text);
-    }
-
-    setPosition ({
-        left = 0, top = 0
-    }: IPosition) {
-        this.text.x = left;
-        this.text.y = top;
-    }
-
-    applyTextStyle (key: IPVStyleKey, value: any): boolean {
-        const pixiKey = TextStyleMap[key];
-
-        if (!pixiKey) return false;
-        (this.text.style as IJson)[pixiKey] = value;
-        return true;
     }
 }

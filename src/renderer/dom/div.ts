@@ -7,8 +7,9 @@
  * @Description: Coding something
  */
 
+import {ENodeName} from 'src/types/enum';
 import {PVElement} from './base/element';
 
 export class Div extends PVElement {
-    
+    nodeName: ENodeName.Div;
 }
